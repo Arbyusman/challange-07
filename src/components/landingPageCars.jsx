@@ -90,7 +90,7 @@ export default function LandingPageCars() {
             className="w-50 me-5 d-flex justify-content-start"
           />
           <Container fluid id="our-service" className="w-50 ms-5 ">
-            <Container className="">
+            <Col className="">
               <h4 className="fw-bold">
                 Best Car Rental for any kind of trip in Kendari!
               </h4>
@@ -100,14 +100,14 @@ export default function LandingPageCars() {
                 kualitas pelayanan terbaik untuk perjalanan wisata, bisnis,
                 wedding, meeting, dll.
               </p>
-            </Container>
+            </Col>
 
             <Container
               fluid
-              className="d-flex flex-column justify-content-start"
+              className="d-flex flex-column justify-content-start ms-3"
             >
-              <Container className="d-flex  align-items-center mb-2">
-                <Container
+              <Col className="d-flex  align-items-center mb-2">
+                <Row
                   className="our-service-list-icon rounded-circle justify-content-start"
                   style={{
                     background: "#cfd4ed",
@@ -116,11 +116,11 @@ export default function LandingPageCars() {
                   }}
                 >
                   <i className="fa-solid fa-check"></i>
-                </Container>
-                <p className="m-2">Sewa Mobil Dengan Supir di Bali 12 Jam</p>
-              </Container>
-              <Container className="d-flex align-items-center mb-2">
-                <Container
+                </Row>
+                <p className="mx-4 my-2">Sewa Mobil Dengan Supir di Bali 12 Jam</p>
+              </Col>
+              <Col className="d-flex align-items-center mb-2">
+                <Row
                   className="our-service-list-icon rounded-circle justify-content-start"
                   style={{
                     background: "#cfd4ed",
@@ -129,11 +129,11 @@ export default function LandingPageCars() {
                   }}
                 >
                   <i className="fa-solid fa-check"></i>
-                </Container>
-                <p className="m-2">Sewa Mobil Lepas Kunci di Bali 24 Jam</p>
-              </Container>
-              <Container className="d-flex align-items-center mb-2">
-                <Container
+                </Row>
+                <p className="mx-4 my-2">Sewa Mobil Lepas Kunci di Bali 24 Jam</p>
+              </Col>
+              <Col className="d-flex align-items-center mb-2">
+                <Row
                   className="our-service-list-icon rounded-circle justify-content-start"
                   style={{
                     background: "#cfd4ed",
@@ -142,11 +142,11 @@ export default function LandingPageCars() {
                   }}
                 >
                   <i className="fa-solid fa-check"></i>
-                </Container>
-                <p className="m-2">Sewa Mobil Jangka Panjang Bulanan</p>
-              </Container>
-              <Container className="d-flex align-items-center mb-2">
-                <Container
+                </Row>
+                <p className="mx-4 my-2">Sewa Mobil Jangka Panjang Bulanan</p>
+              </Col>
+              <Col className="d-flex align-items-center mb-2">
+                <Row
                   className="our-service-list-icon rounded-circle justify-content-start"
                   style={{
                     background: "#cfd4ed",
@@ -155,11 +155,11 @@ export default function LandingPageCars() {
                   }}
                 >
                   <i className="fa-solid fa-check"></i>
-                </Container>
-                <p className="m-2">Gratis Antar - Jemput Mobil di Bandara</p>
-              </Container>
-              <Container className="d-flex align-items-center mb-2">
-                <Container
+                </Row>
+                <p className="mx-4 my-2">Gratis Antar - Jemput Mobil di Bandara</p>
+              </Col>
+              <Col className="d-flex align-items-center mb-2">
+                <Row
                   className="our-service-list-icon rounded-circle justify-content-start"
                   style={{
                     background: "#cfd4ed",
@@ -168,9 +168,9 @@ export default function LandingPageCars() {
                   }}
                 >
                   <i className="fa-solid fa-check"></i>
-                </Container>
-                <p className="m-2">Layanan Airport Transfer / Drop In Out</p>
-              </Container>
+                </Row>
+                <p className="mx-4 my-2">Layanan Airport Transfer / Drop In Out</p>
+              </Col>
             </Container>
           </Container>
         </Container>
