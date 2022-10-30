@@ -1,13 +1,12 @@
 import React from "react";
-import { Container, Nav, Navbar, Offcanvas, Button } from "react-bootstrap";
+import { Container, Nav, Navbar, Offcanvas, Button,Image } from "react-bootstrap";
 import imageCar from "../assets/images/logo.png";
 
 export default function NavbarSection() {
   return (
     <>
       {["lg"].map((expand) => (
-        <Navbar
-          fluid
+        <Navbar          
           key={expand}
           expand={expand}
           className=" navbar-expand-lg  d-flex "
@@ -22,7 +21,7 @@ export default function NavbarSection() {
             
           >
               <Navbar.Brand href="#">
-                <img src={imageCar} className="mx-0" alt="img-logo" />
+                <Image src={imageCar} className="mx-0" alt="img-logo" />
               </Navbar.Brand>
               <Navbar.Toggle
                 aria-controls={`offcanvasNavbar-expand-${expand}`}

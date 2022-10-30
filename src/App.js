@@ -5,11 +5,12 @@ import './assets/styles/style.css'
 
 
 function App() {
+  
   return (
     <div>
-      <NavbarSection />
+      {/* <NavbarSection /> */}
       <LandingPageCars/>
-      <FooterSection />
+      {/* <FooterSection /> */}
     </div>
   );
 }

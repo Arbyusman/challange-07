@@ -8,10 +8,17 @@ import {
   Row,
   Col,
   Accordion,
-  AccordionButton,
-  Figure,
-  Card
+  Card,
 } from "react-bootstrap";
+import { BiLike, BiCheck } from "react-icons/bi";
+import { RiPriceTag3Line } from "react-icons/ri";
+import {
+  FiClock,
+  FiAward,
+  FiChevronLeft,
+  FiChevronRight,
+} from "react-icons/fi";
+import { GoStar } from "react-icons/go";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
@@ -27,12 +34,12 @@ export default function LandingPageCars() {
       {/* hero section */}
       <Container
         fluid
-        className="pt-3 g-0 d-flex flex row"
+        className="pt-3 g-0 d-flex "
         style={{ background: "#F1F3FF" }}
       >
         <Container
-          id="hero"
           fluid
+          id="hero"
           className="d-flex justify-content-between mx-0 px-0 "
         >
           <Container
@@ -73,7 +80,6 @@ export default function LandingPageCars() {
 
       {/* Our Service */}
       <Container
-        fluid
         id="service"
         className="d-flex justify-content-center my-5 "
         style={{ width: "90%" }}
@@ -108,68 +114,91 @@ export default function LandingPageCars() {
             >
               <Col className="d-flex  align-items-center mb-2">
                 <Row
-                  className="our-service-list-icon rounded-circle justify-content-start"
+                  className="our-service-list-icon rounded-circle justify-content-center"
                   style={{
                     background: "#cfd4ed",
                     height: "32px",
                     width: "32px",
                   }}
                 >
-                  <i className="fa-solid fa-check"></i>
+                  <BiCheck
+                    className="px-1 py-1"
+                    style={{ width: "30px", height: "30px", color: "#0D28A6" }}
+                  />
                 </Row>
-                <p className="mx-4 my-2">Sewa Mobil Dengan Supir di Bali 12 Jam</p>
+                <p className="mx-4 my-2">
+                  Sewa Mobil Dengan Supir di Bali 12 Jam
+                </p>
               </Col>
               <Col className="d-flex align-items-center mb-2">
                 <Row
-                  className="our-service-list-icon rounded-circle justify-content-start"
+                  className="our-service-list-icon rounded-circle justify-content-center"
                   style={{
                     background: "#cfd4ed",
                     height: "32px",
                     width: "32px",
                   }}
                 >
-                  <i className="fa-solid fa-check"></i>
+                  <BiCheck
+                    className="px-1 py-1"
+                    style={{ width: "30px", height: "30px", color: "#0D28A6" }}
+                  />
                 </Row>
-                <p className="mx-4 my-2">Sewa Mobil Lepas Kunci di Bali 24 Jam</p>
+                <p className="mx-4 my-2">
+                  Sewa Mobil Lepas Kunci di Bali 24 Jam
+                </p>
               </Col>
               <Col className="d-flex align-items-center mb-2">
                 <Row
-                  className="our-service-list-icon rounded-circle justify-content-start"
+                  className="our-service-list-icon rounded-circle justify-content-center"
                   style={{
                     background: "#cfd4ed",
                     height: "32px",
                     width: "32px",
                   }}
                 >
-                  <i className="fa-solid fa-check"></i>
+                  <BiCheck
+                    className="px-1 py-1"
+                    style={{ width: "30px", height: "30px", color: "#0D28A6" }}
+                  />
                 </Row>
                 <p className="mx-4 my-2">Sewa Mobil Jangka Panjang Bulanan</p>
               </Col>
               <Col className="d-flex align-items-center mb-2">
                 <Row
-                  className="our-service-list-icon rounded-circle justify-content-start"
+                  className="our-service-list-icon rounded-circle justify-content-center"
                   style={{
                     background: "#cfd4ed",
                     height: "32px",
                     width: "32px",
                   }}
                 >
-                  <i className="fa-solid fa-check"></i>
+                  <BiCheck
+                    className="px-1 py-1"
+                    style={{ width: "30px", height: "30px", color: "#0D28A6" }}
+                  />
                 </Row>
-                <p className="mx-4 my-2">Gratis Antar - Jemput Mobil di Bandara</p>
+                <p className="mx-4 my-2">
+                  Gratis Antar - Jemput Mobil di Bandara
+                </p>
               </Col>
               <Col className="d-flex align-items-center mb-2">
                 <Row
-                  className="our-service-list-icon rounded-circle justify-content-start"
+                  className="our-service-list-icon rounded-circle justify-content-center"
                   style={{
                     background: "#cfd4ed",
                     height: "32px",
                     width: "32px",
                   }}
                 >
-                  <i className="fa-solid fa-check"></i>
+                  <BiCheck
+                    className="px-1 py-1"
+                    style={{ width: "30px", height: "30px", color: "#0D28A6" }}
+                  />
                 </Row>
-                <p className="mx-4 my-2">Layanan Airport Transfer / Drop In Out</p>
+                <p className="mx-4 my-2">
+                  Layanan Airport Transfer / Drop In Out
+                </p>
               </Col>
             </Container>
           </Container>
@@ -181,10 +210,9 @@ export default function LandingPageCars() {
       <Container
         fluid
         id="whyus"
-        className="container-fluid d-flex justify-content-center px-0 mx-0 mb-5"
+        className="d-flex justify-content-center px-0 mx-0 mb-5"
       >
         <Container
-          fluid
           className="d-flex flex-column mx-0 px-0"
           style={{ width: " 90%" }}
         >
@@ -200,24 +228,25 @@ export default function LandingPageCars() {
             fluid
             id="whyus-card"
             className="d-flex justify-content-between mx-0 px-0"
-            
           >
-            <Card  className="card gap-3 " style={{ width: "24%" }}>
-              <Card.Body className="card-body">
+            <Card className="card gap-3 " style={{ width: "24%" }}>
+              <Card.Body className="card-body ">
                 <Row
-                  className=" rounded-circle d-flex justify-content-start mb-3 align-items-center"
+                  className=" rounded-circle ms-1 d-flex justify-content-start mb-3 align-items-center"
                   style={{
                     height: "32px",
                     width: "32px",
                     backgroundColor: " #f9cc00",
                   }}
                 >
-                  <i
-                    className="fa-solid fa-thumbs-up"
-                    style={{ color: "white" }}
-                  ></i>
+                  <BiLike
+                    className="px-1 py-1"
+                    style={{ color: "white", width: "30px", height: "30px" }}
+                  />
                 </Row>
-                <Card.Title className="card-subtitle mb-2 fw-bold">Mobil Lengkap</Card.Title>
+                <Card.Title className="card-subtitle mb-2 fw-bold">
+                  Mobil Lengkap
+                </Card.Title>
                 <Card.Text className="card-text">
                   Tersedia banyak pilihan mobil, kondisi masih baru, bersih dan
                   terawat
@@ -235,9 +264,14 @@ export default function LandingPageCars() {
                     backgroundColor: " #fa2c5a",
                   }}
                 >
-                  <i className="fa-solid fa-tag" style={{ color: "white" }}></i>
+                  <RiPriceTag3Line
+                    className="px-1 py-1"
+                    style={{ color: "white", width: "30px", height: "30px" }}
+                  />
                 </Row>
-                <Card.Title className="card-subtitle mb-2 fw-bold">Harga Murah</Card.Title>
+                <Card.Title className="card-subtitle mb-2 fw-bold">
+                  Harga Murah
+                </Card.Title>
                 <Card.Text className="card-text">
                   Harga murah dan bersaing, bisa bandingkan harga kami dengan
                   rental mobil lain
@@ -248,19 +282,21 @@ export default function LandingPageCars() {
             <Card className="card gap-2 " style={{ width: "24%" }}>
               <Card.Body className="card-body">
                 <Row
-                  className="rounded-circle ms-1 d-flexjustify-content-center mb-3 align-items-center"
+                  className="rounded-circle ms-1 d-flex justify-content-center mb-3 align-items-center"
                   style={{
                     height: "32px",
                     width: "32px",
                     backgroundColor: " #0d28a6",
                   }}
                 >
-                  <i
-                    className="fa-solid fa-clock"
-                    style={{ color: "white" }}
-                  ></i>
+                  <FiClock
+                    className="px-1 py-1"
+                    style={{ color: "white", width: "30px", height: "30px" }}
+                  />
                 </Row>
-                <Card.Title className="card-subtitle mb-2 fw-bold">Layanan 24 Jam</Card.Title>
+                <Card.Title className="card-subtitle mb-2 fw-bold">
+                  Layanan 24 Jam
+                </Card.Title>
                 <Card.Text className="card-text">
                   Siap melayani kebutuhan Anda selama 24 jam nonstop. Kami juga
                   tersedia di akhir minggu
@@ -278,12 +314,14 @@ export default function LandingPageCars() {
                     backgroundColor: " #5cb85f",
                   }}
                 >
-                  <i
-                    className="fa-solid fa-award"
-                    style={{ color: "white" }}
-                  ></i>
+                  <FiAward
+                    className="px-1 py-1"
+                    style={{ color: "white", width: "30px", height: "30px" }}
+                  />
                 </Row>
-                <Card.Title className="card-subtitle mb-2 fw-bold">Layanan 24 Jam</Card.Title>
+                <Card.Title className="card-subtitle mb-2 fw-bold">
+                  Layanan 24 Jam
+                </Card.Title>
                 <Card.Text className="card-text">
                   Sopir yang profesional, berpengalaman, jujur, ramah dan selalu
                   tepat waktu
@@ -301,18 +339,26 @@ export default function LandingPageCars() {
         id="testimony"
         className="d-flex justify-content-center align-items-center mt-2"
       >
-        <Container
+        <Row
           fluid
           id="container-testimonial"
           className="d-flex flex-column justify-content-center align-items-center mx-0 px-0"
         >
-          <h1>Testimonial</h1>
-          <p>Berbagai review positif dari para pelanggan kami</p>
+          <Col className="d-flex justify-content-center align-items-center">
+            <Row>
+              <h1 className="d-flex justify-content-center align-items-center">
+                Testimonial
+              </h1>
+              <p className="d-flex justify-content-center align-items-center">
+                Berbagai review positif dari para pelanggan kami
+              </p>
+            </Row>
+          </Col>
 
-          <OwlCarousel
-            className="owl-carousel owl-theme"
-            center={true}
-            items="3"
+          {/* <OwlCarousel
+            id="owlcarousel"
+            className="owl-theme"
+            items={3}
             loop
             margin={10}
             nav={false}
@@ -329,19 +375,24 @@ export default function LandingPageCars() {
               },
             }}
           >
-            <div className="item">
+            <Col className="item">
               <Row>
                 <Col md={3} className="text-center my-auto">
-                  <Image src={person1} className="rounded-circle" alt="GambarPhoto1" />
+                  <Image
+                    src={person1}
+                    className="rounded-circle"
+                    alt="GambarPhoto1"
+                  />
                 </Col>
-                <Col md>
-                  <div className="bintang">
-                    <span className="star">&#9733;</span>
-                    <span className="star">&#9733;</span>
-                    <span className="star">&#9733;</span>
-                    <span className="star">&#9733;</span>
-                    <span className="star">&#9733;</span>
-                  </div>
+                <Col fluid>
+                  <Col fluid>
+                    <GoStar style={{ color: "#F9CC00" }} />
+                    <GoStar style={{ color: "#F9CC00" }} />
+                    <GoStar style={{ color: "#F9CC00" }} />
+                    <GoStar style={{ color: "#F9CC00" }} />
+                    <GoStar style={{ color: "#F9CC00" }} />
+                  </Col>
+
                   <p>
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                     Maxime, incidunt odit? Exercitationem earum officia est.
@@ -351,20 +402,24 @@ export default function LandingPageCars() {
                   <p className="user fw-bold">John Dee 32, Bromo</p>
                 </Col>
               </Row>
-            </div>
-            <div className="item">
+            </Col>
+            <Col className="item">
               <Row>
                 <Col md={3} className="text-center my-auto">
-                  <Image src={person2} className="rounded-circle" alt="GambarPhoto1" />
+                  <Image
+                    src={person2}
+                    className="rounded-circle"
+                    alt="GambarPhoto1"
+                  />
                 </Col>
-                <Col md>
-                  <div className="bintang">
-                    <span className="star">&#9733;</span>
-                    <span className="star">&#9733;</span>
-                    <span className="star">&#9733;</span>
-                    <span className="star">&#9733;</span>
-                    <span className="star">&#9733;</span>
-                  </div>
+                <Col fluid>
+                  <Col fluid>
+                    <GoStar style={{ color: "#F9CC00" }} />
+                    <GoStar style={{ color: "#F9CC00" }} />
+                    <GoStar style={{ color: "#F9CC00" }} />
+                    <GoStar style={{ color: "#F9CC00" }} />
+                    <GoStar style={{ color: "#F9CC00" }} />
+                  </Col>
                   <p>
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                     Maxime, incidunt odit? Exercitationem earum officia est.
@@ -374,20 +429,24 @@ export default function LandingPageCars() {
                   <p className="user fw-bold">John Dee 32, Bromo</p>
                 </Col>
               </Row>
-            </div>
-            <div className="item">
+            </Col>
+            <Col className="item">
               <Row>
                 <Col md={3} className="text-center my-auto">
-                  <Image src={person3} className="rounded-circle" alt="GambarPhoto1" />
+                  <Image
+                    src={person3}
+                    className="rounded-circle"
+                    alt="GambarPhoto1"
+                  />
                 </Col>
-                <Col md>
-                  <div className="bintang">
-                    <span className="star" style={{color:"yellow"}}>&#9733;</span>
-                    <span className="star">&#9733;</span>
-                    <span className="star">&#9733;</span>
-                    <span className="star">&#9733;</span>
-                    <span className="star">&#9733;</span>
-                  </div>
+                <Col fluid>
+                  <Col fluid>
+                    <GoStar style={{ color: "#F9CC00" }} />
+                    <GoStar style={{ color: "#F9CC00" }} />
+                    <GoStar style={{ color: "#F9CC00" }} />
+                    <GoStar style={{ color: "#F9CC00" }} />
+                    <GoStar style={{ color: "#F9CC00" }} />
+                  </Col>
                   <p>
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                     Maxime, incidunt odit? Exercitationem earum officia est.
@@ -397,40 +456,39 @@ export default function LandingPageCars() {
                   <p className="user fw-bold">John Dee 32, Bromo</p>
                 </Col>
               </Row>
-            </div>
-          </OwlCarousel>
-          <Container className="owl-nav">
+            </Col>
+          </OwlCarousel> */}
+          
+
+          <Col className="owl-nav">
             <button
-              class="owl-prev rounded-circle me-2 p-0"
+              className="owl-prev rounded-circle me-2 p-0"
               id="customPrevBtn"
               type="button"
               role="presentation"
               data-bs-target="#carouselExampleControls"
               data-bs-slide="prev"
             >
-              <i class="fa-solid fa-angle-left"></i>
+              <FiChevronLeft style={{ width: "20px", height: "20px" }} />
             </button>
             <button
-              class="owl-next rounded-circle ms-2 p-0"
+              className="owl-next rounded-circle ms-2 p-0"
               id="customNextBtn"
               type="button"
               data-bs-target="#carouselExampleControls"
               data-bs-slide="next"
             >
-              <i class="fa-solid fa-angle-right"></i>
+              <FiChevronRight style={{ width: "20px", height: "20px" }} />
             </button>
-            
-          </Container>
-
-          
-        </Container>
+          </Col>
+        </Row>
       </Container>
       {/* END testimony */}
 
       {/* Banner */}
       <Container
         fluid
-        className="container-fluid d-flex flex-column px-0 mx-0 mt-5 justify-content-center align-items-center"
+        className="d-flex flex-column px-0 mx-0 mt-5 justify-content-center align-items-center"
       >
         <Container
           fluid
@@ -468,7 +526,7 @@ export default function LandingPageCars() {
       <Container
         fluid
         id="faq"
-        className="container-fluid justify-content-center d-flex mt-5 px-0 mx-0"
+        className="justify-content-center d-flex mt-5 px-0 mx-0"
       >
         <Container
           fluid
