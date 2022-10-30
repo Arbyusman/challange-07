@@ -24,7 +24,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>Rental Car Kendari</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -51,5 +51,17 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
       referrerpolicy="no-referrer"
     ></script>
+    <script>
+      jQuery(document).ready(function ($) {
+        var owl = $(".owl-carousel");
+        owl.owlCarousel();
+        $("#customNextBtn").click(function () {
+          owl.trigger("next.owl.carousel");
+        });
+        $("#customPrevBtn").click(function () {
+          owl.trigger("prev.owl.carousel", [300]);
+        });
+      });
+    </script>
   </body>
 </html>

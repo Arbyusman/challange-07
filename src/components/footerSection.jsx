@@ -63,7 +63,7 @@ export default function FooterSection() {
             >
               <FiFacebook
                 className="px-0 "
-                style={{ color: "white", height: "33px", width: "25px" }}
+                style={{ color: "white", height: "30px", width: "23px" }}
               />{" "}
             </Row>
 
@@ -78,7 +78,7 @@ export default function FooterSection() {
             >
               <FiInstagram
                 className="px-0 "
-                style={{ color: "white", height: "33px", width: "25px" }}
+                style={{ color: "white", height: "30px", width: "23px" }}
               />{" "}
             </Row>
             <Row
@@ -92,7 +92,7 @@ export default function FooterSection() {
             >
               <FiTwitter
                 className="px-0 "
-                style={{ color: "white", height: "33px", width: "25px" }}
+                style={{ color: "white", height: "30px", width: "23px" }}
               />{" "}
             </Row>
             <Row
@@ -106,7 +106,7 @@ export default function FooterSection() {
             >
               <FiMail
                 className="px-0 "
-                style={{ color: "white", height: "33px", width: "25px" }}
+                style={{ color: "white", height: "30px", width: "23px" }}
               />{" "}
             </Row>
             <Row
@@ -120,7 +120,7 @@ export default function FooterSection() {
             >
               <FiTwitch
                 className="px-0 "
-                style={{ color: "white", height: "33px", width: "25px" }}
+                style={{ color: "white", height: "30px", width: "23px" }}
               />{" "}
             </Row>
           </ul>

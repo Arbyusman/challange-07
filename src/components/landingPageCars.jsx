@@ -59,7 +59,7 @@ export default function LandingPageCars() {
               kualitas terbaik dengan harga terjangkau. Selalu siap melayani
               kebutuhanmu untuk sewa mobil selama 24 jam.
             </p>
-            <Nav.Link className="p-0" href="">
+            <Nav.Link className="p-0" href="/cars">
               <Button
                 className="px-3 py-2 btn btn-success fw-bold border-0"
                 style={{ background: " #5cb85f" }}
@@ -337,10 +337,9 @@ export default function LandingPageCars() {
       <Container
         fluid
         id="testimony"
-        className="d-flex justify-content-center align-items-center mt-2"
+        className="d-flex justify-content-center align-items-center mt-2 mx-0 px-0"
       >
         <Row
-          fluid
           id="container-testimonial"
           className="d-flex flex-column justify-content-center align-items-center mx-0 px-0"
         >
@@ -355,11 +354,12 @@ export default function LandingPageCars() {
             </Row>
           </Col>
 
-          {/* <OwlCarousel
+          <OwlCarousel
             id="owlcarousel"
-            className="owl-theme"
-            items={3}
-            loop
+            className="owl-carousel owl-theme"
+            items="3"
+            loop={true}
+            center={true}
             margin={10}
             nav={false}
             dots={false}
@@ -384,8 +384,8 @@ export default function LandingPageCars() {
                     alt="GambarPhoto1"
                   />
                 </Col>
-                <Col fluid>
-                  <Col fluid>
+                <Col >
+                  <Col>
                     <GoStar style={{ color: "#F9CC00" }} />
                     <GoStar style={{ color: "#F9CC00" }} />
                     <GoStar style={{ color: "#F9CC00" }} />
@@ -412,8 +412,8 @@ export default function LandingPageCars() {
                     alt="GambarPhoto1"
                   />
                 </Col>
-                <Col fluid>
-                  <Col fluid>
+                <Col >
+                  <Col>
                     <GoStar style={{ color: "#F9CC00" }} />
                     <GoStar style={{ color: "#F9CC00" }} />
                     <GoStar style={{ color: "#F9CC00" }} />
@@ -439,8 +439,8 @@ export default function LandingPageCars() {
                     alt="GambarPhoto1"
                   />
                 </Col>
-                <Col fluid>
-                  <Col fluid>
+                <Col >
+                  <Col >
                     <GoStar style={{ color: "#F9CC00" }} />
                     <GoStar style={{ color: "#F9CC00" }} />
                     <GoStar style={{ color: "#F9CC00" }} />
@@ -457,8 +457,7 @@ export default function LandingPageCars() {
                 </Col>
               </Row>
             </Col>
-          </OwlCarousel> */}
-          
+          </OwlCarousel>
 
           <Col className="owl-nav">
             <button
