@@ -1,17 +1,15 @@
-import FooterSection from './components/footerSection';
-import NavbarSection from './components/navbarSection';
-import LandingPageCars from './components/landingPageCars';
-import './assets/styles/style.css'
-
-
+import "./assets/styles/style.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { LandingPage, SearchPage,PageNotFound } from "./pages";
 function App() {
-  
   return (
-    <div>
-      <NavbarSection />
-      <LandingPageCars/>
-      <FooterSection />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LandingPage />}/>
+        <Route path="Cars" element={<SearchPage />} />
+        <Route path="*" exact={true} element={<PageNotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
