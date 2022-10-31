@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
   Container,
@@ -15,6 +16,39 @@ import { CiSettings } from "react-icons/ci";
 import { AiOutlineCalendar } from "react-icons/ai";
 
 export default function SearchCars() {
+  const [cars, setCars] = useState([]);
+  const [cardCars, setCardCars] = useState([]);
+  const [driverType, setDriverType] = useState("");
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+  const [capacity, setCapacity] = useState("");
+  
+
+  
+
+  useEffect(() => {
+    fetch(
+      "https://raw.githubusercontent.com/fnurhidayat/probable-garbanzo/main/data/cars.min.json"
+    )
+      .then((response) => response.json())
+      .then((result) => {
+        console.log("result", result);
+        setCars(result);
+      })
+      .catch((err) => {
+        console.log("err", err);
+      });
+  }, []);
+
+  const handelSearchCars = () => {
+    console.log(driverType, date, time, capacity);
+    const filteredCars = cars.filter(
+      (item) => item.capacity >= capacity && item.available === true
+    );
+    setCardCars(filteredCars);
+    console.log("car filtered", filteredCars);
+  };
+
   return (
     <div>
       {/* hero section */}
@@ -75,10 +109,11 @@ export default function SearchCars() {
               name="Select Tipe Driver"
               id="typeDriverId"
               className="w-100 shadow-sm"
+              onChange={(e) => setDriverType(e.target.value)}
             >
-              <option value="Pilih Type Driver">Pilih Type Driver</option>
+              <option>Pilih Type Driver</option>
               <option value="Dengan Sopir">Dengan Sopir</option>
-              <option value="Tanpa Sopir (Lepas Kunci)">
+              <option value="TanpaSopir (Lepas Kunci)">
                 Tanpa Sopir (Lepas Kunci)
               </option>
             </Form.Select>
@@ -97,6 +132,7 @@ export default function SearchCars() {
               name="Tanggal"
               id="tanggal"
               className="w-100 shadow-sm"
+              onChange={(e) => setDate(e.target.value)}
             />
           </Col>
           {/* End Pick Date */}
@@ -113,6 +149,7 @@ export default function SearchCars() {
               name="Waktu Jemput"
               id="waktuJemput"
               className="w-100 shadow-sm"
+              onChange={(e) => setTime(e.target.value)}
             />
           </Col>
           {/* End Pick Time */}
@@ -130,6 +167,7 @@ export default function SearchCars() {
               id="jumlahPenumpang"
               className="w-100 shadow-sm"
               placeholder="Jumlah Penumpang"
+              onChange={(e) => setCapacity(e.target.value)}
             />
           </Col>
           {/* End Pick Penumpang */}
@@ -137,6 +175,7 @@ export default function SearchCars() {
             <Button
               id="btn-carimobil"
               className="px-3 text-white fw-bolder mx-1 w-50 d-flex align-items-center"
+              onClick={handelSearchCars}
             >
               Cari Mobil
             </Button>
@@ -153,173 +192,69 @@ export default function SearchCars() {
 
       {/* Card */}
       <Container
-        className="container-fluid p-0"
+        className="container-fluid p-0 gap-3"
         id="cari-mobil"
         style={{ width: "80% " }}
       >
-        <Row className="card mx-1" id="tampil-mobil" style={{ height: "100%" }}>
-          <Col className="justify-content-center align-items-center d-flex ">
-            <Card.Img
-              id="card-image"
-              src=""
-              className="img-fluid   shadow-sm"
-              alt=""
-              style={{ width: "270px", height: "160px" }}
-            />
-          </Col>
-          <Card.Body className="card-body">
-            <Card.Text id="card-name">Tipe Mobil </Card.Text>
-            <Card.Title className="fw-semibold" id="card-rent">
-              RP /hari
-            </Card.Title>
-            <Card.Text
-              className="card-text"
-              id="card-desc"
-              style={{ height: "20%" }}
-            >
-              desc
-            </Card.Text>
-            <Col className=" d-flex">
-              <FiUsers />
-              <Card.Text className="ms-2" id="card-capacity">
-                {" "}
-                4 Orang
-              </Card.Text>
+        {cardCars.map((item) => (
+          <Row
+            className="card mx-1 my-1 "
+            key={item.id}
+            id="tampil-mobil"
+            style={{ height: "100%" }}
+          >
+            <Col className="justify-content-center align-items-center d-flex ">
+              <Card.Img
+                id="card-image"
+                src={item.image}
+                className="img-fluid   shadow-sm"
+                alt=""
+                style={{ width: "270px", height: "160px" }}
+              />
             </Col>
-            <Col className=" d-flex ">
-              <CiSettings />
-              <Card.Text className="ms-2" id="card-transmision">
-                transmision
-              </Card.Text>
-            </Col>
-            <Col className=" d-flex">
-              <AiOutlineCalendar />
-              <Card.Text className="ms-2" id="card-year">
-                Tahun
-              </Card.Text>
-            </Col>
-            <Col className="align-self-end">
-              <Button
-                
-                type="button"
-                className="btn btn-success fw-bold border-0 px-3 container-fluid mb-4 "
-                style={{ background: "#5cb85f" }}
+            <Card.Body className="card-body">
+              <Card.Text id="card-name">Tipe Mobil {item.model} </Card.Text>
+              <Card.Title className="fw-semibold" id="card-rent">
+                RP {item.rentPerDay} /hari
+              </Card.Title>
+              <Card.Text
+                className="card-text"
+                id="card-desc"
+                style={{ height: "25%" }}
               >
-                Pilih Mobil
-              </Button>
-            </Col>
-          </Card.Body>
-        </Row>
-        <Row className="card mx-1" id="tampil-mobil" style={{ height: "100%" }}>
-          <Col className="justify-content-center align-items-center d-flex ">
-            <Card.Img
-              id="card-image"
-              src=""
-              className="img-fluid   shadow-sm"
-              alt=""
-              style={{ width: "270px", height: "160px" }}
-            />
-          </Col>
-          <Card.Body className="card-body">
-            <Card.Text id="card-name">Tipe Mobil </Card.Text>
-            <Card.Title className="fw-semibold" id="card-rent">
-              RP /hari
-            </Card.Title>
-            <Card.Text
-              className="card-text"
-              id="card-desc"
-              style={{ height: "20%" }}
-            >
-              desc
-            </Card.Text>
-            <Col className=" d-flex">
-              <FiUsers />
-              <Card.Text className="ms-2" id="card-capacity">
-                {" "}
-                4 Orang
+                {item.description}
               </Card.Text>
-            </Col>
-            <Col className=" d-flex ">
-              <CiSettings />
-              <Card.Text className="ms-2" id="card-transmision">
-                transmision
-              </Card.Text>
-            </Col>
-            <Col className=" d-flex">
-              <AiOutlineCalendar />
-              <Card.Text className="ms-2" id="card-year">
-                Tahun
-              </Card.Text>
-            </Col>
-            <Col className="align-self-end">
-              <Button
-                
-                type="button"
-                className="btn btn-success fw-bold border-0 px-3 container-fluid mb-4 "
-                style={{ background: "#5cb85f" }}
-              >
-                Pilih Mobil
-              </Button>
-            </Col>
-          </Card.Body>
-        </Row>
-        <Row className="card mx-1" id="tampil-mobil" style={{ height: "100%" }}>
-          <Col className="justify-content-center align-items-center d-flex ">
-            <Card.Img
-              id="card-image"
-              src=""
-              className="img-fluid   shadow-sm"
-              alt=""
-              style={{ width: "270px", height: "160px" }}
-            />
-          </Col>
-          <Card.Body className="card-body">
-            <Card.Text id="card-name">Tipe Mobil </Card.Text>
-            <Card.Title className="fw-semibold" id="card-rent">
-              RP /hari
-            </Card.Title>
-            <Card.Text
-              className="card-text"
-              id="card-desc"
-              style={{ height: "20%" }}
-            >
-              desc
-            </Card.Text>
-            <Col className=" d-flex">
-              <FiUsers />
-              <Card.Text className="ms-2" id="card-capacity">
-                {" "}
-                4 Orang
-              </Card.Text>
-            </Col>
-            <Col className=" d-flex ">
-              <CiSettings />
-              <Card.Text className="ms-2" id="card-transmision">
-                transmision
-              </Card.Text>
-            </Col>
-            <Col className=" d-flex">
-              <AiOutlineCalendar />
-              <Card.Text className="ms-2" id="card-year">
-                Tahun
-              </Card.Text>
-            </Col>
-            <Col className="align-self-end">
-              <Button
-                
-                type="button"
-                className="btn btn-success fw-bold border-0 px-3 container-fluid mb-4 "
-                style={{ background: "#5cb85f" }}
-              >
-                Pilih Mobil
-              </Button>
-            </Col>
-          </Card.Body>
-        </Row>
-
-        
-
-        
+              <Col className=" d-flex">
+                <FiUsers />
+                <Card.Text className="ms-2 mb-1" id="card-capacity">
+                  {" "}
+                  {item.capacity}
+                </Card.Text>
+              </Col>
+              <Col className=" d-flex ">
+                <CiSettings />
+                <Card.Text className="ms-2 mb-1" id="card-transmision">
+                  {item.transmission}
+                </Card.Text>
+              </Col>
+              <Col className=" d-flex mb-3">
+                <AiOutlineCalendar />
+                <Card.Text className="ms-2" id="card-year">
+                  {item.year}
+                </Card.Text>
+              </Col>
+              <Col className="align-self-end">
+                <Button
+                  type="button"
+                  className="btn btn-success fw-bold border-0 px-3 container-fluid mb-2 "
+                  style={{ background: "#5cb85f" }}
+                >
+                  Pilih Mobil
+                </Button>
+              </Col>
+            </Card.Body>
+          </Row>
+        ))}
       </Container>
 
       {/* End Card */}
