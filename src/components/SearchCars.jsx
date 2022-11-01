@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect,useCallback } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
   Container,
@@ -22,9 +22,22 @@ export default function SearchCars() {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [capacity, setCapacity] = useState("");
-  
 
-  
+  const populateCars = useCallback((cars) => {
+    return cars.map((car) => {
+      const isPositive = getRandomInt(0, 1) === 1;
+      const timeAt = new Date();
+      const mutator = getRandomInt(1000000, 100000000);
+      const availableAt = new Date(
+        timeAt.getTime() + (isPositive ? mutator : -1 * mutator)
+      );
+
+      return {
+        ...car,
+        availableAt,
+      };
+    });
+  }, []);
 
   useEffect(() => {
     fetch(
@@ -33,20 +46,35 @@ export default function SearchCars() {
       .then((response) => response.json())
       .then((result) => {
         console.log("result", result);
-        setCars(result);
+        const newResult = populateCars(result);
+        setCars(newResult);
       })
       .catch((err) => {
         console.log("err", err);
       });
-  }, []);
+  }, [populateCars]);
+
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 
   const handelSearchCars = () => {
     console.log(driverType, date, time, capacity);
+
+    const newDateTime = new Date(`${date} ${time}`);
+    console.log("timeData", newDateTime);
+
     const filteredCars = cars.filter(
-      (item) => item.capacity >= capacity && item.available === true
+      (item) => item.capacity >= capacity && item.availableAt <= newDateTime
     );
     setCardCars(filteredCars);
     console.log("car filtered", filteredCars);
+  };
+
+  const handelResetCars = () => {
+    setCardCars([]);
   };
 
   return (
@@ -182,6 +210,7 @@ export default function SearchCars() {
             <Button
               id="btn-reset"
               className="px-3 text-white fw-bolder ms-1 w-50 d-flex align-items-center"
+              onClick={handelResetCars}
             >
               Reset
             </Button>
