@@ -45,7 +45,7 @@ export default function SearchCars() {
     )
       .then((response) => response.json())
       .then((result) => {
-        console.log("result", result);
+        // console.log("result", result);
         const newResult = populateCars(result);
         setCars(newResult);
       })
@@ -64,13 +64,13 @@ export default function SearchCars() {
     console.log(driverType, date, time, capacity);
 
     const newDateTime = new Date(`${date} ${time}`);
-    console.log("timeData", newDateTime);
 
     const filteredCars = cars.filter(
-      (item) => item.capacity >= capacity && item.availableAt <= newDateTime
+      (item) => item.capacity >= capacity && item.availableAt >= newDateTime
     );
+
     setCardCars(filteredCars);
-    console.log("car filtered", filteredCars);
+    console.log("cars filtered: ", filteredCars);
   };
 
   const handelResetCars = () => {
@@ -226,6 +226,7 @@ export default function SearchCars() {
         style={{ width: "80% " }}
       >
         {cardCars.length > 0 ? (
+          cardCars.sort((a,b) => (a.capacity) - (b.capacity)),
           cardCars.map((item) => (
             <Row
               className="card mx-1 my-1 "
@@ -233,12 +234,11 @@ export default function SearchCars() {
               id="tampil-mobil"
               style={{ height: "100%" }}
             >
-              <Col className="justify-content-center align-items-center d-flex ">
+              <Col className="justify-content-center rounded-3  align-items-center d-flex ">
                 <Card.Img
                   id="card-image"
                   src={item.image}
-                  className="img-fluid   shadow-sm"
-                  alt=""
+                  className="img-fluid mt-4 rounded-3 shadow-lg"
                   style={{ width: "270px", height: "160px" }}
                 />
               </Col>

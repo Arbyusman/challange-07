@@ -384,7 +384,7 @@ export default function LandingPageCars() {
                     alt="GambarPhoto1"
                   />
                 </Col>
-                <Col >
+                <Col>
                   <Col>
                     <GoStar style={{ color: "#F9CC00" }} />
                     <GoStar style={{ color: "#F9CC00" }} />
@@ -412,7 +412,7 @@ export default function LandingPageCars() {
                     alt="GambarPhoto1"
                   />
                 </Col>
-                <Col >
+                <Col>
                   <Col>
                     <GoStar style={{ color: "#F9CC00" }} />
                     <GoStar style={{ color: "#F9CC00" }} />
@@ -439,8 +439,8 @@ export default function LandingPageCars() {
                     alt="GambarPhoto1"
                   />
                 </Col>
-                <Col >
-                  <Col >
+                <Col>
+                  <Col>
                     <GoStar style={{ color: "#F9CC00" }} />
                     <GoStar style={{ color: "#F9CC00" }} />
                     <GoStar style={{ color: "#F9CC00" }} />
@@ -510,13 +510,14 @@ export default function LandingPageCars() {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
-          <Button
-            id="banner-button"
-            className="btn btn-success fw-bold mt-4 mb-5 border-0"
-            style={{ background: "#5cb85f" }}
-          >
-            Mulai Sewa Mobil
-          </Button>
+          <Nav.Link className="py-2 my-3" href="/cars">
+            <Button
+              className="px-3 py-2 btn btn-success fw-bold border-0"
+              style={{ background: " #5cb85f" }}
+            >
+              Mulai Sewa Mobil
+            </Button>
+          </Nav.Link>
         </Container>
       </Container>
       {/* End Banner */}
